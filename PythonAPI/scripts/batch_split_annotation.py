@@ -2,14 +2,14 @@ import os
 import subprocess
 import sys
 
-HOMEDIR = os.path.expanduser("~")
 CURDIR = os.path.dirname(os.path.realpath(__file__))
+COCODIR = '/mnt/data/'
 
 ### Modify the address and parameters accordingly ###
 # If true, redo the whole thing.
 redo = True
 # The root directory which stores the coco images, annotations, etc.
-coco_data_dir = "{}/data/coco".format(HOMEDIR)
+coco_data_dir = "{}/data/mscoco".format(COCODIR)
 # The sets that we want to split. These can be downloaded at: http://mscoco.org
 # Unzip all the files after download.
 anno_sets = ["image_info_test2014", "image_info_test2015", "image_info_test-dev2015",

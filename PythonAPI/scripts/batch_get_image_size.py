@@ -4,14 +4,15 @@ import sys
 
 HOMEDIR = os.path.expanduser("~")
 CURDIR = os.path.dirname(os.path.realpath(__file__))
+DATADIR = "/mnt/data"
 
 ### Modify the address and parameters accordingly ###
 # If true, redo the whole thing.
 redo = True
 # The caffe root.
-CAFFE_ROOT = "{}/projects/caffe".format(HOMEDIR)
+CAFFE_ROOT = "{}/git/caffe".format(HOMEDIR)
 # The root directory which stores the coco images, annotations, etc.
-coco_data_dir = "{}/data/coco".format(HOMEDIR)
+coco_data_dir = "{}/data/mscoco".format(DATADIR)
 # The sets that we want to get the size info.
 anno_sets = ["image_info_test-dev2015", "instances_minival2014"]
 # The directory which contains the full annotation files for each set.
@@ -27,6 +28,7 @@ if not os.path.exists(out_dir):
 for i in xrange(0, len(anno_sets)):
     anno_set = anno_sets[i]
     anno_file = "{}/{}.json".format(anno_dir, anno_set)
+    print(anno_file)
     if not os.path.exists(anno_file):
         continue
     anno_name = anno_set.split("_")[-1]
